@@ -4,6 +4,11 @@ Backstage admin theme for Django: custom `AdminSite`, sidebar navigation, dashbo
 
 Source: [github.com/JatraTech/django-backstage](https://github.com/JatraTech/django-backstage).
 
+## Documentation
+
+- Index: [docs/README.md](docs/README.md) ([on GitHub](https://github.com/JatraTech/django-backstage/tree/main/docs))
+- Integration: [docs/integration.md](docs/integration.md)
+
 ## Install
 
 In another project:
@@ -66,7 +71,7 @@ python manage.py check_backstage_integration
 
 Add `yourapp/backstage_host.py` (navigation, `ADMIN_OVERRIDES`, `FIELD_EDITOR_META`, preview route callback) and merge exports into `settings.BACKSTAGE`. The package does not ship host-specific nav.
 
-Rich text: install the `tinymce` extra and wire TinyMCE URLs/upload JS in the host (see integration docs in the django-template reference host).
+Rich text: install the `tinymce` extra and wire TinyMCE URLs/upload JS in the host — see [features/editor-ux.md](docs/features/editor-ux.md).
 
 ## Upgrades
 

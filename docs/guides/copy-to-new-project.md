@@ -1,16 +1,20 @@
 # Universal install checklist
 
-Use this when adding Backstage to a **new** Django project (not the BPI monorepo). For day-to-day BPI development, see [../integration.md](../integration.md).
+Use this when adding Backstage to **your Django project**. For day-to-day wiring and features, see [../integration.md](../integration.md).
 
 ## 1. Install the package
+
+Use the GitHub dependency on **any** machine:
 
 ```text
 uv add "django-backstage[tinymce] @ git+https://github.com/JatraTech/django-backstage.git"
 ```
 
-Monorepo dev (this office tree): use an editable path source in `pyproject.toml` pointing at [`django-backstage`](../../../../django-backstage).
+Pin a tag or branch when you need a fixed version:
 
-Do **not** copy BPI apps (`app/`, `core`, `website/`) or legacy `app.utils.admin.rich_text` shims—use `backstage.mixins.rich_text` from the package.
+```text
+uv add "django-backstage[tinymce] @ git+https://github.com/JatraTech/django-backstage.git@v0.1.0"
+```
 
 Package README and extras: [django-backstage](https://github.com/JatraTech/django-backstage).
 
@@ -48,6 +52,7 @@ Wire in `settings.py` — see [examples/settings_snippet.py](examples/settings_s
 
 - `BACKSTAGE` dict (`NAV_GROUPS`, `ADMIN_OVERRIDES`, `PREVIEW_ROUTE_CALLBACK`, optional `DRAFT_PUBLISH`, `DASHBOARD`)
 - Import model metadata from `yourapp/backstage_host.py` only (not from product models at module top level unless lazy)
+- For rich text admin mixins, use `backstage.mixins.rich_text` from the package — see [../integration.md](../integration.md)
 
 ## 4. Host-owned pieces
 
@@ -80,10 +85,4 @@ From your project root (with venv active):
 python manage.py check_backstage_integration
 ```
 
-Manual QA with sample models: use a **reference host** that includes a demo app (for example the JatraTech `django-template` project and its `docs/backstage/reference-host.md` walkthrough).
-
-## 7. Do not copy from BPI
-
-- `app/backstage_host.py` business config (use as **reference**, not verbatim)
-- `core`, `website`, `app.utils.fields.OptimizedImageField` (host-only optimizations)
-- BPI-specific `INSTALLED_APPS` and API apps unless your project needs them
+For manual QA with sample models, follow the checklist in [../operations/troubleshooting.md](../operations/troubleshooting.md).

@@ -19,9 +19,9 @@ Package source: [github.com/JatraTech/django-backstage](https://github.com/Jatra
 | 7 | [features/editor-ux.md](features/editor-ux.md) | Editor meta policy |
 | 8 | [operations/troubleshooting.md](operations/troubleshooting.md) | Failures and manual QA |
 | 9 | [features/draft-publish.md](features/draft-publish.md) | Draft rows + preview |
-| 10 | [guides/copy-to-new-project.md](guides/copy-to-new-project.md) | Install package on another project |
+| 10 | [guides/copy-to-new-project.md](guides/copy-to-new-project.md) | Install checklist |
 
-Host config template (from a clone of this repo):
+Host config example — copy from `docs/examples/backstage_host.example.py`:
 
 ```bash
 cp docs/examples/backstage_host.example.py yourapp/backstage_host.py

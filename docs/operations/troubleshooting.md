@@ -68,10 +68,6 @@ Hard-refresh browser after changing `styles.css` or Tailwind classes.
 python manage.py check_backstage_integration
 ```
 
-BPI product tests: `uv run pytest core/tests app/tests -q` (default `app.settings`).
-
-**Sample admin + themed UI:** this repo (`/admin/`, `sample` models, System → Admin appearance).
-
 ## Manual QA (after theme changes)
 
 1. Changelist — row dividers, Actions column

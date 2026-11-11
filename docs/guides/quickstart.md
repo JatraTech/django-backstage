@@ -6,7 +6,7 @@
 uv add "django-backstage[tinymce] @ git+https://github.com/JatraTech/django-backstage.git"
 ```
 
-See [django-backstage README](https://github.com/JatraTech/django-backstage/blob/main/README.md) for pip/editable installs.
+Extras and dev setup: [README.md](../../README.md).
 
 ## 2. `INSTALLED_APPS` order
 

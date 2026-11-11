@@ -11,7 +11,7 @@ Source: [github.com/JatraTech/django-backstage](https://github.com/JatraTech/dja
 
 ## Install
 
-In another project:
+Install in your Django project:
 
 ```text
 uv add "django-backstage[tinymce] @ git+https://github.com/JatraTech/django-backstage.git"
@@ -23,7 +23,7 @@ A specific branch or tag:
 uv add "django-backstage[tinymce] @ git+https://github.com/JatraTech/django-backstage.git@v0.1.0"
 ```
 
-In this repo:
+Package development (clone + tests):
 
 ```text
 uv sync --all-extras --group dev

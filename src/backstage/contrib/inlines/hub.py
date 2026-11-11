@@ -63,5 +63,5 @@ class HubInlineMixin:
         return super().has_delete_permission(request, obj)
 
     def get_hub_template_context(self, request: HttpRequest) -> dict[str, Any]:
-        """Extension point for django-template universal admin panels."""
+        """Extension point for host-project universal admin panels."""
         return {}

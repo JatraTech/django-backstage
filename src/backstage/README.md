@@ -1,10 +1,10 @@
 # Backstage Admin Panel
 
-Django admin UI for host projects: auto-registration, shared changelist and change forms, navigation, preview, and editor metadata.
+Django admin UI for Django projects that install this package: auto-registration, shared changelist and change forms, navigation, preview, and editor metadata.
 
 ## Documentation
 
-**Canonical docs:** [github.com/JatraTech/django-backstage/tree/main/docs](https://github.com/JatraTech/django-backstage/tree/main/docs) — start with [integration.md](https://github.com/JatraTech/django-backstage/blob/main/docs/integration.md).
+**Start here:** [../../docs/integration.md](../../docs/integration.md) — full manual in [../../docs/README.md](../../docs/README.md). Published copy: [github.com/JatraTech/django-backstage/tree/main/docs](https://github.com/JatraTech/django-backstage/tree/main/docs).
 
 ## Install (minimal)
 

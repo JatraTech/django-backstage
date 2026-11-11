@@ -2,19 +2,17 @@
 
 ## 2026-11-10 (docs on package repo)
 
-- Canonical Backstage manual lives in **`django-backstage/docs/`** (moved from django-template `docs/backstage/`).
-- django-template keeps a thin stub + [reference-host](https://github.com/JatraTech/django-template/blob/main/docs/backstage/reference-host.md) for sample-app QA (when that repo is published).
+- Canonical Backstage manual lives in **`django-backstage/docs/`**.
 
 ## 2026-11-10 (installable package)
 
-- **django-backstage:** Backstage admin ships as [JatraTech/django-backstage](https://github.com/JatraTech/django-backstage) (`uv add` git dependency). This reference host uses an editable path to `starter-template/django-backstage` instead of a vendored `backstage/` tree.
-- **Upgrading vendored copies:** Replace copied `backstage/` with the package, run `migrate backstage`, keep `backstage_host.py` and `BACKSTAGE` in the host.
+- **django-backstage:** Backstage admin ships as [JatraTech/django-backstage](https://github.com/JatraTech/django-backstage) (`uv add` git dependency). After install, run `migrate backstage` and wire `backstage_host.py` / `BACKSTAGE` in your project.
 
 ## 2026-10-30 (admin activity log)
 
 - **Admin activity log:** Dashboard Recent activity shows change summaries, IP (when captured), and superuser-wide feed; **System → Admin activity** read-only changelist (action type, Open link, filters). Migrations `0004_adminlogentrymeta`, `0005_adminactivitylog`.
 - **Host wiring:** Add `backstage.middleware.AdminRequestMiddleware` after auth; optional `BACKSTAGE["TRUSTED_PROXY_COUNT"]` (env) for production client IP behind nginx; allowlist `backstage.AdminActivityLog` in `NAV_GROUPS["system"].models`.
-- **Upgrading BPI / Sotherly / other vendored copies:** Pin `django-backstage`, run `migrate backstage`, add middleware + nav + env (same as Caissa K12 `backstage_host` system block).
+- **Upgrades:** Pin `django-backstage`, run `migrate backstage`, add middleware + nav + env in `backstage_host.py` as needed.
 
 ## 2026-10-23 (sidebar permissions)
 
@@ -39,14 +37,14 @@
 
 ## 2026-10-02 (package sync)
 
-- **Package re-aligned** with Caissa K12, BPI, and Sotherly: hub inlines, `INLINE_RELATIONS` compiler, `primary_tab_slug` (hub tab merged into parent fieldset tabs), scrollable fieldset tabs with horizontal wheel scroll.
+- **Hub inlines:** `INLINE_RELATIONS` compiler, `primary_tab_slug` (hub tab merged into parent fieldset tabs), scrollable fieldset tabs with horizontal wheel scroll.
 - **Branding:** `branding_defaults_from_config()` seeds new `BackstageSettings` rows; migration `0002_backfill_branding_from_config` one-time backfill from `BACKSTAGE` SITE_* when DB fields are empty; display uses DB only via `resolve_branding_field` / `resolve_text` (cleared fields stay empty).
 - **Admin UX:** Image preview checkerboard/border styling; dashboard welcome title respects resolved site header.
 
 ## 2026-10-02 (earlier note — superseded)
 
-- The short-lived “BPI-aligned” doc that removed hub/`INLINE_RELATIONS` is **superseded** by the package sync above. Prefer `INLINE_RELATIONS` for parent→child edges; use `ADMIN_OVERRIDES` for one-off tweaks.
+- The short-lived doc set that removed hub/`INLINE_RELATIONS` is **superseded** by the package sync above. Prefer `INLINE_RELATIONS` for parent→child edges; use `ADMIN_OVERRIDES` for one-off tweaks.
 
 ## 2026-09-29
 
-- **INLINE_RELATIONS** and hub modes were added to django-template only; later consolidated into the shared package across hosts.
+- **INLINE_RELATIONS** and hub inline modes added to the package.

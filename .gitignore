@@ -1,3 +1,6 @@
+# BackstageSettings ImageField uploads (upload_to="backstage/") — not the src/backstage package
+/backstage/
+
 __pycache__/
 *.py[cod]
 *$py.class

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "django-backstage"
-version = "0.1.0"
+version = "0.1.1"
 description = "Backstage Django admin theme: custom AdminSite, navigation, dashboard, and host-driven configuration."
 readme = "README.md"
 requires-python = ">=3.10"

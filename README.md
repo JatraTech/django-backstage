@@ -21,7 +21,7 @@ uv add "django-backstage[tinymce] @ git+https://github.com/JatraTech/django-back
 A specific branch or tag:
 
 ```text
-uv add "django-backstage[tinymce] @ git+https://github.com/JatraTech/django-backstage.git@v0.1.0"
+uv add "django-backstage[tinymce] @ git+https://github.com/JatraTech/django-backstage.git@v0.1.1"
 ```
 
 ## Verification

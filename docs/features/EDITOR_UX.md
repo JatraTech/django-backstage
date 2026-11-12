@@ -18,9 +18,11 @@ Do not duplicate identical label/help on model and meta. Meta wins in admin when
 
 ## TinyMCE
 
-Auto-admin applies `RichTextAdminMixin` / `RichTextInlineMixin` from [`backstage/mixins/rich_text.py`](../mixins/rich_text.py) when field names match `RICH_TEXT_FIELD_NAMES` / suffixes. The mixin loads host static **`admin/tinymce_upload.js`** (wire upload in your project).
+Auto-admin applies `RichTextAdminMixin` / `RichTextInlineMixin` from [`backstage/mixins/rich_text.py`](../mixins/rich_text.py) when field names match `RICH_TEXT_FIELD_NAMES` / suffixes. The mixin loads **`admin/tinymce_upload.js`** from package staticfiles.
 
-Configure `TINYMCE_DEFAULT_CONFIG` in project `settings.py` (slim toolbar). Requires upload URL and `django-tinymce`.
+Wire upload in `urls.py`: `from backstage.views import tinymce_upload` and `path("admin/tinymce/upload/", tinymce_upload, name="tinymce_upload")` (or `include("backstage.tinymce_urls")` under `admin/tinymce/`).
+
+Configure `TINYMCE_DEFAULT_CONFIG` in project `settings.py` (slim toolbar). Requires `django-tinymce`.
 
 ## Singleton safety
 
@@ -33,4 +35,4 @@ Configure `TINYMCE_DEFAULT_CONFIG` in project `settings.py` (slim toolbar). Requ
 3. SEOMixin pages — SEO labels from model
 4. Preview when frontend runs
 
-See [integration.md](integration.md).
+See [INTEGRATION.md](../INTEGRATION.md).

@@ -1,5 +1,10 @@
 # Backstage docs changelog
 
+## 2026-11-11 (TinyMCE upload in package)
+
+- **`backstage.tinymce_upload`:** staff-only image upload view; `backstage.tinymce_urls` optional include; static `admin/tinymce_upload.js` in package.
+- **`check_backstage_integration`:** warns when `tinymce` is installed but `tinymce_upload` URL is missing.
+
 ## 2026-11-10 (docs on package repo)
 
 - Canonical Backstage manual lives in **`django-backstage/docs/`**.

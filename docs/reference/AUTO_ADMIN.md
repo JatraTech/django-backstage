@@ -80,4 +80,4 @@ Special-cased in factory with Django auth forms and custom fieldsets; still wrap
 
 ## No `admin.py` required
 
-Host apps may keep empty `admin.py` with a comment only. Customization paths: [../features/customization.md](../features/customization.md).
+Host apps may keep empty `admin.py` with a comment only. Customization paths: [../features/CUSTOMIZATION.md](../features/CUSTOMIZATION.md).

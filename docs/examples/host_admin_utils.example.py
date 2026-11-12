@@ -3,7 +3,7 @@ Shared helpers for custom ModelAdmins that replace Backstage autodiscovered clas
 
 Copy into your Django project (e.g. yourapp/admin_utils.py) and import from app admin modules.
 
-See docs/integration.md § Customize admin.
+See docs/INTEGRATION.md § Customize admin.
 """
 
 from __future__ import annotations

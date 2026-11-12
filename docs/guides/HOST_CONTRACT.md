@@ -62,8 +62,8 @@ Use the same field names as [examples/host_seo_mixin.py](examples/host_seo_mixin
 **Host requirements:**
 
 - `django-tinymce` installed and configured.
-- Upload endpoint wired in your project (e.g. `admin/tinymce/upload/`).
-- Slim toolbar recommended — see [../features/editor-ux.md](../features/editor-ux.md).
+- Upload endpoint: `from backstage.views import tinymce_upload` and `path("admin/tinymce/upload/", tinymce_upload, name="tinymce_upload")`, or `path("admin/tinymce/", include("backstage.tinymce_urls"))`. Static `admin/tinymce_upload.js` ships with the `backstage` app.
+- Slim toolbar recommended — see [../features/EDITOR_UX.md](../features/EDITOR_UX.md).
 
 ## Publishing tab
 
@@ -97,8 +97,8 @@ If model has both `slug` and `title` fields, factory sets `prepopulated_fields =
 
 ## What Backstage skips registering
 
-See [reference/auto-admin.md](reference/auto-admin.md): abstract, unmanaged, proxy, inline-only, `BackstageSettings`, `Permission`, apps in `SKIP_APP_LABELS`.
+See [reference/AUTO_ADMIN.md](reference/AUTO_ADMIN.md): abstract, unmanaged, proxy, inline-only, `BackstageSettings`, `Permission`, apps in `SKIP_APP_LABELS`.
 
 ## Editor copy (optional but recommended)
 
-Plain-language labels in admin come from `FIELD_EDITOR_META` / `TAB_DESCRIPTIONS` in host settings — not from this contract. See [../features/editor-ux.md](../features/editor-ux.md).
+Plain-language labels in admin come from `FIELD_EDITOR_META` / `TAB_DESCRIPTIONS` in host settings — not from this contract. See [../features/EDITOR_UX.md](../features/EDITOR_UX.md).

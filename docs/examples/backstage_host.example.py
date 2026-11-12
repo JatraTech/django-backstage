@@ -12,7 +12,7 @@ Editor copy policy:
 
 Preview: implement resolve_preview_route below; point PREVIEW_ROUTE_CALLBACK at this module.
 Import models inside that function if settings imports this module at startup.
-See docs/reference/configuration.md for all BACKSTAGE keys.
+See docs/reference/CONFIGURATION.md for all BACKSTAGE keys.
 """
 
 from __future__ import annotations
@@ -63,7 +63,7 @@ MODEL_LABELS: dict[str, str] = {
     "adminactivitylog": _("Admin activity"),
 }
 
-# Optional: compile parent→child inlines from config (see integration.md)
+# Optional: compile parent→child inlines from config (see INTEGRATION.md)
 INLINE_RELATIONS: list[dict[str, Any]] = [
     # {
     #     "parent": "PressReleasesPage",
@@ -76,7 +76,7 @@ INLINE_RELATIONS: list[dict[str, Any]] = [
     # },
 ]
 
-# --- Dashboard (optional; see configuration.md) ---
+# --- Dashboard (optional; see CONFIGURATION.md) ---
 
 DASHBOARD = {
     "layout": ["welcome", "stats", "quick_actions", "my_drafts", "recent_activity"],
@@ -162,7 +162,7 @@ FIELD_EDITOR_META = {
         "intro_body": _rich_body(_("Introduction")),
     },
     # Catalog models (BlogPost, Product, …): set verbose_name / help_text on the model,
-    # not here — see 07-editor-ux.md.
+    # not here — see 07-EDITOR_UX.md.
 }
 
 # --- Preview routes (public site paths, no domain) ---

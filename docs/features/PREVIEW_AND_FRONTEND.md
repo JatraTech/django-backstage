@@ -1,6 +1,6 @@
 # Preview and frontend integration
 
-Split-pane preview shows the public frontend in an iframe beside the change form. For models in `DRAFT_PUBLISH`, preview reads **draft** content; otherwise preview shows **saved** DB state (see [draft-publish.md](draft-publish.md)).
+Split-pane preview shows the public frontend in an iframe beside the change form. For models in `DRAFT_PUBLISH`, preview reads **draft** content; otherwise preview shows **saved** DB state (see [DRAFT_PUBLISH.md](DRAFT_PUBLISH.md)).
 
 ## Enable preview for a model
 
@@ -16,7 +16,7 @@ def resolve_preview_route(obj):
 
 3. Add the model to `BACKSTAGE["DRAFT_PUBLISH"]["models"]` with duplicate-row draft fields (`DraftPublishDuplicateRowMixin`). Split-pane preview is enabled only for allowlisted models when step 1 returns a route.
 
-See [draft-publish.md](draft-publish.md) and [examples/backstage_host.example.py](examples/backstage_host.example.py).
+See [DRAFT_PUBLISH.md](DRAFT_PUBLISH.md) and [examples/backstage_host.example.py](examples/backstage_host.example.py).
 
 When preview paths are tied to **model-owned slugs** (e.g. marketing pages), prefer a class-level `PREVIEW_PATH_BY_SLUG` on the model and read it from `resolve_preview_route` instead of duplicating slug→path maps in the host file.
 
@@ -51,4 +51,4 @@ def get_queryset(self):
 
 ## Troubleshooting
 
-[../operations/troubleshooting.md](../operations/troubleshooting.md)
+[../operations/TROUBLESHOOTING.md](../operations/TROUBLESHOOTING.md)

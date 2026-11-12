@@ -52,5 +52,5 @@ CORS_ALLOW_HEADERS = (
     "x-preview-token",
 )
 
-# TinyMCE — see docs/07-editor-ux.md
+# TinyMCE — see docs/07-EDITOR_UX.md
 # TINYMCE_DEFAULT_CONFIG = { ... }

@@ -14,7 +14,7 @@ Validates `INSTALLED_APPS` order, `BACKSTAGE` dict, theme URL, migrations, and p
 |---------|--------------|-----|
 | Broken iframe icon | Frontend not running | Start Vite/dev server |
 | Wrong page | Callback path mismatch | Fix `resolve_preview_route` in `backstage_host.py` |
-| Browser: “Request header field x-preview-token is not allowed…” (CORS preflight) | `CORS_ALLOW_HEADERS` missing `x-preview-token` | Add tuple in host `settings.py` (see [../features/preview-and-frontend.md](../features/preview-and-frontend.md) or [../examples/settings_snippet.py](../examples/settings_snippet.py)) |
+| Browser: “Request header field x-preview-token is not allowed…” (CORS preflight) | `CORS_ALLOW_HEADERS` missing `x-preview-token` | Add tuple in host `settings.py` (see [../features/PREVIEW_AND_FRONTEND.md](../features/PREVIEW_AND_FRONTEND.md) or [../examples/settings_snippet.py](../examples/settings_snippet.py)) |
 | 401/403 on API in iframe | Missing CORS header or invalid token | Add `x-preview-token` to `CORS_ALLOW_HEADERS`; check preview token TTL |
 | Stale content | Expected | Preview shows **saved** DB state — save form first |
 | Empty preview panel | Callback returned `None` | Implement route for model class |
@@ -25,7 +25,7 @@ Set **Admin appearance → Preview → Frontend URL** to match `FRONTEND_URL`.
 
 You registered a model in `admin.py` that Backstage already registered.
 
-**Fix:** `admin.site.unregister(Model)` before `register`, or remove duplicate `@admin.register`. See [../features/customization.md](../features/customization.md).
+**Fix:** `admin.site.unregister(Model)` before `register`, or remove duplicate `@admin.register`. See [../features/CUSTOMIZATION.md](../features/CUSTOMIZATION.md).
 
 ## Missing SEO tab
 

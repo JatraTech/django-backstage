@@ -118,7 +118,7 @@ Optional **`welcome.links`**: list of `{ "label", "url" }` or `{ "label", "url_k
 - **Full page override:** `BACKSTAGE["DASHBOARD_TEMPLATE"] = "yourapp/admin/dashboard.html"` (context still includes `dashboard_widgets`, `dashboard_layout`).
 - **Extra context:** `DASHBOARD_CALLBACK` runs after widgets are built.
 
-See [reference/configuration.md](reference/configuration.md) for the full `DASHBOARD` schema.
+See [reference/CONFIGURATION.md](../reference/CONFIGURATION.md) for the full `DASHBOARD` schema.
 
 Default dashboard markup and styling live in `backstage/templates/backstage/dashboard/` and `backstage/static/backstage/admin-theme.css` (in the **django-backstage** package). For a completely different layout, set `DASHBOARD_TEMPLATE` to your own template (context keys `dashboard_widgets`, `dashboard_layout` remain available).
 

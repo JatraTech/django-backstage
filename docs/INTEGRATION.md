@@ -35,7 +35,7 @@ python manage.py migrate backstage
 
 Apply migrations after upgrading the package (includes `0002_backfill_branding_from_config` for existing Admin appearance rows, `0003_backstagesettings_favicon_light` for tab icons, and **`0004_adminlogentrymeta` / `0005_adminactivitylog`** for admin activity IP metadata and the Admin activity proxy). New or replaced logos generate `favicon_light` automatically when Admin appearance is saved.
 
-Details: [guides/quickstart.md](guides/quickstart.md).
+Details: [guides/QUICKSTART.md](guides/QUICKSTART.md).
 
 ## 2. Host config (one file)
 
@@ -83,11 +83,11 @@ Auto-admin detects `SingletonModel`, SEO field names, and rich-text field names.
 
 For headless/public APIs, copy [examples/host_cms_api_utils.py](examples/host_cms_api_utils.py) and [examples/host_singleton_viewset.py](examples/host_singleton_viewset.py).
 
-Full contract: [guides/host-contract.md](guides/host-contract.md).
+Full contract: [guides/HOST_CONTRACT.md](guides/HOST_CONTRACT.md).
 
 **Page-child models (sidebar):** If a model has a single foreign key to a parent page in the same app (ignoring audit fields like `created_by` / `updated_by`), Backstage treats it as inline-only: it is not registered as a standalone admin and does not appear in the auto-built sidebar. Edit those rows on the parent change form tabs instead. To order and allowlist sidebar items, set optional `models` on each entry in `NAV_GROUPS` (e.g. `"website.HomePage"`). That list controls **which registered models can appear** and in what order; each user only sees links their `ModelAdmin.has_view_permission` allows (custom admins included).
 
-For extra inline classes, fieldsets, or ordering on a parent, use `ADMIN_OVERRIDES` in `backstage_host.py` (e.g. `"inlines"`, `"fieldsets"`). See [features/customization.md](features/customization.md).
+For extra inline classes, fieldsets, or ordering on a parent, use `ADMIN_OVERRIDES` in `backstage_host.py` (e.g. `"inlines"`, `"fieldsets"`). See [features/CUSTOMIZATION.md](features/CUSTOMIZATION.md).
 
 ### Inline relations (`INLINE_RELATIONS`)
 
@@ -99,7 +99,7 @@ Declare parent → child edges in `BACKSTAGE["INLINE_RELATIONS"]` (export a list
 | `default_tabular` | Editable tabular inline |
 | `hub_tabular` / `hub_stacked` | Read-only summary + Edit/Delete + Add/View all footer |
 
-Set **`primary_tab_slug`** on a hub entry to anchor the hub panel on a parent fieldset tab (same tab bar as `classes: ["tab"]` fieldsets). See [reference/configuration.md](reference/configuration.md).
+Set **`primary_tab_slug`** on a hub entry to anchor the hub panel on a parent fieldset tab (same tab bar as `classes: ["tab"]` fieldsets). See [reference/CONFIGURATION.md](reference/CONFIGURATION.md).
 
 ### Admin activity log
 
@@ -134,11 +134,11 @@ Do not duplicate the same text on model and meta.
 
 1. `ADMIN_OVERRIDES` in `backstage_host.py`
 2. Editor meta / tab descriptions in the same file
-3. Unregister + custom `ModelAdmin` only when needed — [features/customization.md](features/customization.md). Copy [examples/host_admin_utils.example.py](examples/host_admin_utils.example.py) into your project for `replace_admin`, hub inline helpers, and `apply_host_overrides`.
+3. Unregister + custom `ModelAdmin` only when needed — [features/CUSTOMIZATION.md](features/CUSTOMIZATION.md). Copy [examples/host_admin_utils.example.py](examples/host_admin_utils.example.py) into your project for `replace_admin`, hub inline helpers, and `apply_host_overrides`.
 
 ## 6. Preview (optional)
 
-Implement `resolve_preview_route` in **`backstage_host.py`**. The SPA sends preview tokens on API requests; add **`x-preview-token`** to `CORS_ALLOW_HEADERS` in your `settings.py` (see [features/preview-and-frontend.md](features/preview-and-frontend.md) and [examples/settings_snippet.py](examples/settings_snippet.py)).
+Implement `resolve_preview_route` in **`backstage_host.py`**. The SPA sends preview tokens on API requests; add **`x-preview-token`** to `CORS_ALLOW_HEADERS` in your `settings.py` (see [features/PREVIEW_AND_FRONTEND.md](features/PREVIEW_AND_FRONTEND.md) and [examples/settings_snippet.py](examples/settings_snippet.py)).
 
 ## Verify in your project
 
@@ -148,9 +148,9 @@ python manage.py check_backstage_integration
 
 The integration check prints **warnings** when `FIELD_EDITOR_META` repeats a model field’s `verbose_name` or `help_text` — remove those entries from host meta. It also validates `DRAFT_PUBLISH` models have `live_version` and a preview route mapping.
 
-Draft/publish: [features/draft-publish.md](features/draft-publish.md).
+Draft/publish: [features/DRAFT_PUBLISH.md](features/DRAFT_PUBLISH.md).
 
-Branding: **System → Admin appearance**. Text fields (title, header, subheader) are stored in the DB; `BACKSTAGE` SITE_* seed new or empty rows via migration/create only — see [reference/configuration.md](reference/configuration.md).
+Branding: **System → Admin appearance**. Text fields (title, header, subheader) are stored in the DB; `BACKSTAGE` SITE_* seed new or empty rows via migration/create only — see [reference/CONFIGURATION.md](reference/CONFIGURATION.md).
 
 ## Layer boundaries
 
@@ -165,11 +165,11 @@ Keep host-specific code out of the package when possible:
 
 `backstage` must be **first** in `INSTALLED_APPS`; it installs `BackstageAdminSite` as `admin.site` during `AppConfig.ready()`.
 
-Rich text: mixins in `backstage/mixins/rich_text.py`; host still serves `admin/tinymce_upload.js` — see [features/editor-ux.md](features/editor-ux.md).
+Rich text: mixins in `backstage/mixins/rich_text.py`; upload view and `admin/tinymce_upload.js` ship in the package — see [features/EDITOR_UX.md](features/EDITOR_UX.md).
 
 ## Troubleshooting
 
-[operations/troubleshooting.md](operations/troubleshooting.md)
+[operations/TROUBLESHOOTING.md](operations/TROUBLESHOOTING.md)
 
 ## Optional contrib apps
 

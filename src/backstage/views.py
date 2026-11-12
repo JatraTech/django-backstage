@@ -137,3 +137,8 @@ class BaseAutocompleteView(ListView):
 
 def theme_css_view(request) -> HttpResponse:
     return HttpResponse(resolve_theme_css(), content_type="text/css")
+
+
+from backstage.tinymce_upload import tinymce_upload  # noqa: E402
+
+__all__ = ["tinymce_upload", "theme_css_view"]

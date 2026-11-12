@@ -10,6 +10,6 @@
 | [host_singleton_viewset.py](host_singleton_viewset.py) | Read-only `ViewSet.list` for singleton pages |
 | [host_admin_utils.example.py](host_admin_utils.example.py) | `replace_admin`, hub inline helpers, `apply_host_overrides` for slim custom admins |
 
-Human onboarding: [../integration.md](../integration.md).
+Human onboarding: [../INTEGRATION.md](../INTEGRATION.md).
 
-All `BACKSTAGE` keys: [../reference/configuration.md](../reference/configuration.md).
+All `BACKSTAGE` keys: [../reference/CONFIGURATION.md](../reference/CONFIGURATION.md).

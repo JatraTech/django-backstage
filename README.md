@@ -6,8 +6,9 @@ Source: [github.com/JatraTech/django-backstage](https://github.com/JatraTech/dja
 
 ## Documentation
 
-- Index: [docs/README.md](docs/README.md) ([on GitHub](https://github.com/JatraTech/django-backstage/tree/main/docs))
-- Integration: [docs/integration.md](docs/integration.md)
+- Index: [docs/README.md](docs/README.md) ([on GitHub](https://github.com/JatraTech/django-backstage/tree/main/docs)) — **SCREAMING_SNAKE** topic files under `docs/`
+- Integration: [docs/INTEGRATION.md](docs/INTEGRATION.md)
+- Changelog: [docs/CHANGELOG.md](docs/CHANGELOG.md)
 
 ## Install
 
@@ -23,12 +24,22 @@ A specific branch or tag:
 uv add "django-backstage[tinymce] @ git+https://github.com/JatraTech/django-backstage.git@v0.1.0"
 ```
 
-Package development (clone + tests):
+## Verification
+
+**Package (this repository):**
 
 ```text
 uv sync --all-extras --group dev
-uv run pytest
+uv run pytest -q
 ```
+
+**Host project (after wiring):**
+
+```text
+python manage.py check_backstage_integration
+```
+
+See [docs/README.md](docs/README.md) for the full manual.
 
 pip fallback: `pip install -e ".[all]"`.
 
@@ -71,7 +82,7 @@ python manage.py check_backstage_integration
 
 Add `yourapp/backstage_host.py` (navigation, `ADMIN_OVERRIDES`, `FIELD_EDITOR_META`, preview route callback) and merge exports into `settings.BACKSTAGE`. The package does not ship host-specific nav.
 
-Rich text: install the `tinymce` extra and wire TinyMCE URLs/upload JS in the host — see [features/editor-ux.md](docs/features/editor-ux.md).
+Rich text: install the `tinymce` extra and wire TinyMCE URLs/upload JS in the host — see [features/EDITOR_UX.md](docs/features/EDITOR_UX.md).
 
 ## Upgrades
 

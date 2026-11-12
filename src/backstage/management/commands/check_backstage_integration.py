@@ -42,6 +42,16 @@ class Command(BaseCommand):
                 'URL name "backstage-theme-css" not found — include path("backstage/", include("backstage.urls")).'
             )
 
+        if "tinymce" in installed:
+            try:
+                reverse("tinymce_upload")
+            except NoReverseMatch:
+                warnings.append(
+                    'URL name "tinymce_upload" not found — wire '
+                    'path("admin/tinymce/upload/", tinymce_upload) from backstage.views or '
+                    'path("admin/tinymce/", include("backstage.tinymce_urls")).'
+                )
+
         if not self._backstage_migrations_applied():
             errors.append('Run "python manage.py migrate backstage" — backstage tables missing.')
 
